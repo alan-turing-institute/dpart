@@ -80,7 +80,7 @@ class dpart:
         df = df.copy()
         for col, series in df.items():
             print(f'{col}: dtype - {series.dtype.kind}')
-            if series.dtype.kind in "OSb":
+            if series.dtype.kind in "OSb" or (col in self.bounds and "categories" in self.bounds[col].keys()):
                 t_dtype = "category"
                 if col not in self.bounds:
                     if self._epsilon.get("methods", None) is not None:
