@@ -79,6 +79,7 @@ class dpart:
         self.encoders = {}
         df = df.copy()
         for col, series in df.items():
+            print(f'{col}: dtype - {series.dtype.kind}')
             if series.dtype.kind in "OSb":
                 t_dtype = "category"
                 if col not in self.bounds:
